@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+body {
+    font-family:  'Roboto', sans-serif;
+}
+.main-block {
+    width: 25vw;
+    border: 1px solid rgba(196, 196, 196, 1);
+    border-radius: 10px;
+    margin: 200px auto;
+    margin-bottom: 0;
+    vertical-align: middle; 
+    max-height: 30vw;
+}
+.yellow-block {
+    background-color: rgba(255, 220, 64, 1);
+    width: 100%;
+    height: 2vw;
+    border-radius: 10px 10px 0 0;
+}
+h1 {
+    font-size: 2vw;
+    text-align: center;
+    margin: 1vw 0;
+}
+.sorticondown {
+    margin-left: 21vw;
+    cursor: pointer;
+}
+.todos {
+    max-height:13vw;
+    overflow-y: auto;
+}
+.inputdiv{ 
+    width: 21vw;
+    height: 3vw;
+    border-radius: 10px;
+    border: 1px  solid rgba(196, 196, 196, 1);
+    margin: 2vw 0 2vw 2vw;
+    display: flex;
+    margin: auto;
+}
+.inputtodo, .todolist {
+    outline: none;
+    border: none;
+    border-radius: 10px;
+}
+li {
+    width: 17vw;
+    justify-content: space-between;
+    display: flex;
+    margin: 3px 0;
+}
+.closelist {
+margin: 0;
+}
+.close{
+    width: 1.594vw;
+    height: 1.594vw;
+    margin: auto;
+    color: #c4c4c4;
+    cursor: pointer;
+    transition: opacity .2s;
+    border-radius: 50%;
+    border: 0.2vw solid #c4c4c4;
+}
+.close:hover{
+    opacity: 2;
+    background-color: #833AE0;
+}
+.button {
+    width: 11vw;
+    height: 3vw;
+    background-color: rgba(131, 58, 224, 1);
+    border-radius: 71px;
+    border: none;
+    color: white;
+    font-size: 1vw;
+    margin: 1.2vw 7vw 1.5vw 7vw;
+    cursor: pointer;
+    display: flex;
+    justify-content: start;
+    align-items: center;   
+}
+.button .add {
+    margin-left: 1.1vw;
+}
+.button:hover {
+    background-color: rgb(149, 92, 224);
+}
+.plus {
+    border-radius: 71px;
+    border: none;
+    color: white;
+    background-color: rgba(153, 83, 241, 1);
+    height: 3vw;
+    width: 3vw;
+    display: flex;
+    align-items: center;
+}
+.plus span {
+   margin: auto;
+   font-size: 1.2vw;
+}
+.sorticondown::before {
+    content: url('icons/Group 38.png');
+ }
+ 
+ .sorticonup::before {
+    content: url('icons/Group 92.png');
+ }
+ 
