@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
-body {
+@media screen and (min-width: 1152px) {
+    body {
     font-family:  'Roboto', sans-serif;
 }
 .main-block {
@@ -22,16 +23,19 @@ h1 {
     text-align: center;
     margin: 1vw 0;
 }
-.sorticondown {
+.sort {
     margin-left: 21vw;
     cursor: pointer;
 }
 .todos {
     max-height:13vw;
     overflow-y: auto;
+    border-radius: 10px;
+    width: 90%;
+    margin: auto;
 }
 .inputdiv{ 
-    width: 21vw;
+    width: 99.3%;
     height: 3vw;
     border-radius: 10px;
     border: 1px  solid rgba(196, 196, 196, 1);
@@ -44,14 +48,23 @@ h1 {
     border: none;
     border-radius: 10px;
 }
+.inputtodo {
+    width: 67%;
+    font-size: 1.2vw;
+}
 li {
-    width: 17vw;
     justify-content: space-between;
     display: flex;
     margin: 3px 0;
+    font-size: 1.2vw;
+}
+.sort {
+    height: 1.1vw;
+    width: 1.8vw;
+    margin-bottom: 1vw;
 }
 .closelist {
-margin: 0;
+margin: 0 13% 0 0;
 }
 .close{
     width: 1.594vw;
@@ -101,11 +114,5 @@ margin: 0;
    margin: auto;
    font-size: 1.2vw;
 }
-/* .sorticondown::before{
-    content: url('icons/Group 38.png');
- }
+}
 
- .sorticonup::after  {
-    content: url('icons/Group 92.png');
- } */
- 
