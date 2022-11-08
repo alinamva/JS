@@ -101,11 +101,11 @@ margin: 0;
    margin: auto;
    font-size: 1.2vw;
 }
-.sorticondown::before {
+/* .sorticondown::before{
     content: url('icons/Group 38.png');
  }
- 
- .sorticonup::before {
+
+ .sorticonup::after  {
     content: url('icons/Group 92.png');
- }
+ } */
  
