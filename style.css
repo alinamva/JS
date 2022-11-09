@@ -1,5 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
 @media screen and (min-width: 1152px) {
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
     body {
     font-family:  'Roboto', sans-serif;
 }
@@ -39,8 +40,6 @@ h1 {
     height: 3vw;
     border-radius: 10px;
     border: 1px  solid rgba(196, 196, 196, 1);
-    margin: 2vw 0 2vw 2vw;
-    display: flex;
     margin: auto;
 }
 .inputtodo, .todolist {
@@ -69,7 +68,7 @@ margin: 0 13% 0 0;
 .close{
     width: 1.594vw;
     height: 1.594vw;
-    margin: auto;
+    margin: 2% 0 0 10.5%;
     color: #c4c4c4;
     cursor: pointer;
     transition: opacity .2s;

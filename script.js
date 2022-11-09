@@ -21,11 +21,11 @@ inputToDo.addEventListener('keyup', (event) =>{
         closeList.addEventListener('click', ()=>{
         toDo.style.display = 'none'   
 })
-        inputDiv.style.opacity = '0'
+        inputDiv.style.display = 'none'
         } 
 })
 addToDoBtn.addEventListener('click', ()=>{
-    inputDiv.style.opacity = "1"
+    inputDiv.style.display = "block"
     inputToDo.focus()
     toDos.scrollTop = toDos.scrollHeight
           
@@ -69,4 +69,8 @@ function reverseUl(event) {
   }
 }
 
-    
+    function fix(){
+      if (toDos.target.overflowY = scroll){
+        inputDiv.style.position = 'fixed'
+      }
+    }
