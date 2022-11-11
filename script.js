@@ -19,13 +19,17 @@ inputToDo.addEventListener('keyup', (event) =>{
         closeList.innerHTML = '<ion-icon name="close-outline" class="close"></ion-icon>'
         toDo.appendChild(closeList)
         closeList.addEventListener('click', ()=>{
-        toDo.style.display = 'none'   
+        toDo.parentNode.removeChild(toDo)
+        if(ulToDo.children.length == 0)  {
+          toDos.style.border = 'none'
+          inputDiv.style.display = "flex"
+        }
 })
         inputDiv.style.display = 'none'
         } 
 })
 addToDoBtn.addEventListener('click', ()=>{
-    inputDiv.style.display = "block"
+    inputDiv.style.display = "flex"
     inputToDo.focus()
     toDos.scrollTop = toDos.scrollHeight
           
@@ -37,14 +41,14 @@ sort.addEventListener("click", sortUl);
 function sortUl(event) {
   if (event.target.id == "sort") {
     if (ulToDo.children.length != 0) {
-      let newDAta = [];
+      let arr = [];
       for (let i = 0; i < ulToDo.children.length; i++) {
-        newDAta.push(ulToDo.children[i].childNodes[0].textContent);
+        arr.push(ulToDo.children[i].childNodes[0].textContent);
       }
       event.target.src = "icons/sortdownb.png";
-      newDAta.sort();
+      arr.sort();
       for (let i = 0; i < ulToDo.children.length; i++) {
-        ulToDo.children[i].childNodes[0].textContent = newDAta[i];
+        ulToDo.children[i].childNodes[0].textContent = arr[i];
       }
     }
     sort.removeEventListener("click", sortUl);
@@ -68,9 +72,3 @@ function reverseUl(event) {
     sort.addEventListener("click", sortUl);
   }
 }
-
-    function fix(){
-      if (toDos.target.overflowY = scroll){
-        inputDiv.style.position = 'fixed'
-      }
-    }
