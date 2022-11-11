@@ -31,8 +31,7 @@ inputToDo.addEventListener('keyup', (event) =>{
 addToDoBtn.addEventListener('click', ()=>{
     inputDiv.style.display = "flex"
     inputToDo.focus()
-    toDos.scrollTop = toDos.scrollHeight
-          
+    toDos.scrollTop = toDos.scrollHeight         
 })
 clearBtn.addEventListener('click', ()=>{
 inputToDo.value = ''
