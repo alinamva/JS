@@ -4,7 +4,8 @@ const toDos = document.querySelector('.todos')
 const ulToDo = document.querySelector('ul')
 const addToDoBtn = document.querySelector('.button')
 const clearBtn = document.querySelector('.close')
-const sort = document.querySelector(".sort");
+const sort = document.querySelector(".sort")
+const listElements = document.querySelector('.todos')
 
 inputToDo.addEventListener('keyup', (event) =>{
     if(event.keyCode == 13) {
@@ -71,3 +72,8 @@ function reverseUl(event) {
     sort.addEventListener("click", sortUl);
   }
 }
+
+const ull = document.querySelector("#sortlist")
+new Sortable(ull, {
+  animation: 200,
+  });
