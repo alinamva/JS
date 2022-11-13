@@ -1,54 +1,71 @@
-const inputDiv = document.querySelector('.inputdiv')
-const inputToDo = document.querySelector('.inputtodo')
+const addBtn = document.querySelector('.button')
+const toDoUl = document.querySelector('ul')
 const toDos = document.querySelector('.todos')
-const ulToDo = document.querySelector('ul')
-const addToDoBtn = document.querySelector('.button')
-const clearBtn = document.querySelector('.close')
-const sort = document.querySelector(".sort")
-const listElements = document.querySelector('.todos')
-
-inputToDo.addEventListener('keyup', (event) =>{
+let closeInput = document.querySelector('.closeinput')
+let sortList = document.querySelector('.sortlist')
+ 
+addBtn.addEventListener('click', ()=>{
+    let inputDiv = document.createElement('div')
+    inputDiv.classList.add('inputdiv')
+    toDos.appendChild(inputDiv)
+    if(toDoUl.children.length != 0)  {
+      inputDiv.style.border = 'none'
+    }
+    toDos.scrollTop = toDos.scrollHeight  
+    let inputtodo = document.createElement('input')
+    inputtodo.classList.add('inputtodo')
+    inputDiv.appendChild(inputtodo)
+    inputtodo.placeholder = 'Добавь задачу'
+    let closeInput = document.createElement('p')
+        closeInput.classList.add('closeinput')
+        closeInput.innerHTML = '<ion-icon name="close-outline" class="close"></ion-icon>'
+        closeInput.addEventListener('click', ()=>{
+    inputtodo.value = ''
+    inputtodo.focus()
+})
+closeInput.addEventListener('dblclick', ()=>{
+    inputDiv.style.display = 'none'
+})
+        inputDiv.appendChild(closeInput)
+    inputDiv.addEventListener('keyup', (event) =>{
     if(event.keyCode == 13) {
-      toDos.style.border = 'thin solid #c4c4c4'
+      if ( inputtodo.value != '') {
+        let lidiv = document.createElement('li')
+        lidiv.classList.add('lidiv')
+        toDoUl.appendChild(lidiv)
         const toDo = document.createElement('li')
         toDo.classList.add('todolist')
-        toDo.innerText = inputToDo.value
-        inputToDo.value = ''
-        ulToDo.appendChild(toDo)     
-        const closeList = document.createElement('p')
+        toDo.innerText = inputtodo.value
+        lidiv.appendChild(toDo) 
+        toDos.style.border = '1px solid rgba(196, 196, 196, 1)'
+        inputtodo.value = ''  
+        inputDiv.style.display = 'none'  
+        let closeList = document.createElement('p')
         closeList.classList.add('closelist')
         closeList.innerHTML = '<ion-icon name="close-outline" class="close"></ion-icon>'
-        toDo.appendChild(closeList)
+        lidiv.appendChild(closeList)
         closeList.addEventListener('click', ()=>{
-        toDo.parentNode.removeChild(toDo)
-        if(ulToDo.children.length == 0)  {
-          toDos.style.border = 'none'
-          inputDiv.style.display = "flex"
-        }
-})
-        inputDiv.style.display = 'none'
-        } 
-})
-addToDoBtn.addEventListener('click', ()=>{
-    inputDiv.style.display = "flex"
-    inputToDo.focus()
-    toDos.scrollTop = toDos.scrollHeight         
-})
-clearBtn.addEventListener('click', ()=>{
-inputToDo.value = ''
+            lidiv.parentNode.removeChild(lidiv)
+            if(toDoUl.children.length === 0)  {
+      toDos.style.border = 'none'
+      inputDiv.style.display = "flex"
+    }
+        })
+        } }   
+}) 
 })
 sort.addEventListener("click", sortUl);
 function sortUl(event) {
   if (event.target.id == "sort") {
-    if (ulToDo.children.length != 0) {
+    if (toDoUl.children.length != 0) {
       let arr = [];
-      for (let i = 0; i < ulToDo.children.length; i++) {
-        arr.push(ulToDo.children[i].childNodes[0].textContent);
+      for (let i = 0; i < toDoUl.children.length; i++) {
+        arr.push(toDoUl.children[i].childNodes[0].textContent);
       }
       event.target.src = "icons/sortdownb.png";
       arr.sort();
-      for (let i = 0; i < ulToDo.children.length; i++) {
-        ulToDo.children[i].childNodes[0].textContent = arr[i];
+      for (let i = 0; i < toDoUl.children.length; i++) {
+        toDoUl.children[i].childNodes[0].textContent = arr[i];
       }
     }
     sort.removeEventListener("click", sortUl);
@@ -57,23 +74,21 @@ function sortUl(event) {
 }
 function reverseUl(event) {
   if (event.target.id == "sort") {
-    if (ulToDo.children.length != 0) {
+    if (toDoUl.children.length != 0) {
       let newDAta = [];
-      for (let i = 0; i < ulToDo.children.length; i++) {
-        newDAta.push(ulToDo.children[i].childNodes[0].textContent);
+      for (let i = 0; i < toDoUl.children.length; i++) {
+        newDAta.push(toDoUl.children[i].childNodes[0].textContent);
       }
       event.target.src = "icons/sortupb.png";
       newDAta.sort().reverse();
-      for (let i = 0; i < ulToDo.children.length; i++) {
-        ulToDo.children[i].childNodes[0].textContent = newDAta[i];
+      for (let i = 0; i < toDoUl.children.length; i++) {
+        toDoUl.children[i].childNodes[0].textContent = newDAta[i];
       }
     }
     sort.removeEventListener("click", reverseUl);
     sort.addEventListener("click", sortUl);
   }
 }
-
-const ull = document.querySelector("#sortlist")
-new Sortable(ull, {
-  animation: 200,
+new Sortable(toDoUl, {
+  animation: 250,
   });
