@@ -15,7 +15,7 @@ addBtn.addEventListener('click', ()=>{
     let inputtodo = document.createElement('input')
     inputtodo.classList.add('inputtodo')
     inputDiv.appendChild(inputtodo)
-    inputtodo.placeholder = 'Добавь задачу'
+    inputtodo.placeholder = 'Добавьте задачу'
     let closeInput = document.createElement('p')
         closeInput.classList.add('closeinput')
         closeInput.innerHTML = '<ion-icon name="close-outline" class="close"></ion-icon>'
