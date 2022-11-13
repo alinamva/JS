@@ -4,7 +4,7 @@ const toDos = document.querySelector('.todos')
 let closeInput = document.querySelector('.closeinput')
 let sortList = document.querySelector('.sortlist')
  
-addBtn.addEventListener('click', ()=>{
+function start(){
     let inputDiv = document.createElement('div')
     inputDiv.classList.add('inputdiv')
     toDos.appendChild(inputDiv)
@@ -53,7 +53,9 @@ closeInput.addEventListener('dblclick', ()=>{
         })
         } }   
 }) 
-})
+}
+start()
+addBtn.addEventListener('click', start)
 sort.addEventListener("click", sortUl);
 function sortUl(event) {
   if (event.target.id == "sort") {
